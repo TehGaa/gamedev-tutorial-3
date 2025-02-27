@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c556yddagi7y8"]
+
+[ext_resource type="Texture2D" uid="uid://b83s10q5xdw4w" path="res://assets/playerShip1_blue.png" id="1_lc6sx"]
+[ext_resource type="Script" path="res://scenes/Player.gd" id="1_xjsra"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uuc0c"]
+size = Vector2(95, 77)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_xjsra")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lc6sx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_uuc0c")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
