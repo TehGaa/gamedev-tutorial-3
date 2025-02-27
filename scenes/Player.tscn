@@ -1,19 +1,98 @@
-[gd_scene load_steps=4 format=3 uid="uid://c556yddagi7y8"]
+[gd_scene load_steps=12 format=3 uid="uid://c556yddagi7y8"]
 
-[ext_resource type="Texture2D" uid="uid://b83s10q5xdw4w" path="res://assets/playerShip1_blue.png" id="1_lc6sx"]
 [ext_resource type="Script" path="res://scenes/Player.gd" id="1_xjsra"]
+[ext_resource type="Texture2D" uid="uid://d2to1aj6m7mgl" path="res://assets/kenney_platformercharacters/PNG/Adventurer/adventurer_tilesheet.png" id="2_3erkp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk57j"]
+atlas = ExtResource("2_3erkp")
+region = Rect2(240, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k0mb"]
+atlas = ExtResource("2_3erkp")
+region = Rect2(0, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwce6"]
+atlas = ExtResource("2_3erkp")
+region = Rect2(560, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeyk1"]
+atlas = ExtResource("2_3erkp")
+region = Rect2(640, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_war7a"]
+atlas = ExtResource("2_3erkp")
+region = Rect2(80, 0, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l416"]
+atlas = ExtResource("2_3erkp")
+region = Rect2(0, 110, 80, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0wwq"]
+atlas = ExtResource("2_3erkp")
+region = Rect2(80, 110, 80, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0r0sn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pk57j")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k0mb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwce6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeyk1")
+}],
+"loop": true,
+"name": &"default_jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_war7a")
+}],
+"loop": true,
+"name": &"side_jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l416")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0wwq")
+}],
+"loop": true,
+"name": &"side_walk",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uuc0c"]
-size = Vector2(95, 77)
+size = Vector2(95, 90.5)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_xjsra")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_lc6sx")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0r0sn")
+animation = &"crouch"
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
+position = Vector2(2, 9.25)
 shape = SubResource("RectangleShape2D_uuc0c")
 
 [node name="Timer" type="Timer" parent="."]
