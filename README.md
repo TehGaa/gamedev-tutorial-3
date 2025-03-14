@@ -1,3 +1,5 @@
+# Tutorial 3
+
 Double jump dicapai dengan membuat counter lompatan yang akan ter reset ketika player menyentuh tanah.
 Bila counter bernilai 1 dan player belum menyentuh tanah, maka player dapat melompat kembali.
 
@@ -13,3 +15,6 @@ Pengubahan play animasi dengan mengambil node $AnimatedSprite2D kemudian menggun
 mengisinya dengan argumen berupa nama yang sesuai dengan animasi terkait. Misal, ketika player
 menekan tombol panah bawah, maka animasi yang akan dimainkan bernama "crouch".
 
+# Tutorial 5
+
+Mengubah main 2 sebagai tutorial dan menambahkan main 3 sebagai latihan mandiri. Menambahkan sprite baru yang berbentuk robot beserta animasinya. Menambahkan audio yang akan menyala setiap kali player melompat. Menambahkan bgm yang akan di-looping selama permainan. Menambahkan audio yang akan menyala ketika player menginjak kotak misteri, kemudian kotak misteri akan menghilang dan player akan sedikit melompat.

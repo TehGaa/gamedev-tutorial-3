@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://kxsnxpmkq6qm"]
+
+[ext_resource type="Texture2D" uid="uid://c4pfqn4ee86yd" path="res://assets/mystery_box.png" id="1_s7133"]
+[ext_resource type="Script" path="res://scenes/MysteryBox.gd" id="2_5xrq2"]
+[ext_resource type="AudioStream" uid="uid://bntupk44yneni" path="res://assets/mystery_box_edited.wav" id="3_3ieo5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddsrb"]
+size = Vector2(367, 418)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwxm8"]
+size = Vector2(403, 389)
+
+[node name="MysteryBox" type="Area2D"]
+script = ExtResource("2_5xrq2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_s7133")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -20)
+shape = SubResource("RectangleShape2D_ddsrb")
+
+[node name="Body" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+position = Vector2(-2.5, -3.5)
+shape = SubResource("RectangleShape2D_xwxm8")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3ieo5")
+volume_db = 5.0
+
+[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3wwmfwul3rr3"]
+
+[ext_resource type="PackedScene" uid="uid://bfa8w7ojyv2n2" path="res://Scenes/Ground.tscn" id="1_sbbab"]
+[ext_resource type="PackedScene" uid="uid://kxsnxpmkq6qm" path="res://scenes/MysteryBox.tscn" id="2_t1ecf"]
+[ext_resource type="PackedScene" uid="uid://cjfbmt2sxov6x" path="res://scenes/Player3.tscn" id="2_wouoh"]
+[ext_resource type="AudioStream" uid="uid://cxyfj8pars860" path="res://assets/lagu_telur.wav" id="3_kc8mb"]
+
+[node name="Root" type="Node2D"]
+
+[node name="Ground" parent="." instance=ExtResource("1_sbbab")]
+position = Vector2(507.708, 363.86)
+
+[node name="Ground2" parent="." instance=ExtResource("1_sbbab")]
+position = Vector2(789.149, 294.054)
+
+[node name="Ground3" parent="." instance=ExtResource("1_sbbab")]
+position = Vector2(225.95, 294.562)
+
+[node name="MysteryBox" parent="." instance=ExtResource("2_t1ecf")]
+position = Vector2(721, 224)
+scale = Vector2(0.18, 0.18)
+
+[node name="Player3" parent="." instance=ExtResource("2_wouoh")]
+position = Vector2(501, 20)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kc8mb")
+volume_db = 5.0
+autoplay = true
